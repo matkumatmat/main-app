@@ -110,3 +110,79 @@
 2026/02/03 01:46:23 [notice] 608766#0: worker process 608773 exited with code 0
 2026/02/03 01:46:23 [notice] 608766#0: worker process 608774 exited with code 0
 2026/02/03 01:46:23 [notice] 608766#0: exit
+2026/02/03 02:09:40 [notice] 629508#0: using the "epoll" event method
+2026/02/03 02:09:40 [notice] 629508#0: openresty/1.27.1.2
+2026/02/03 02:09:40 [notice] 629508#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 02:09:40 [notice] 629508#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 02:09:40 [notice] 629508#0: start worker processes
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629509
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629510
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629511
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629512
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629513
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629514
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629515
+2026/02/03 02:09:40 [notice] 629508#0: start worker process 629516
+2026/02/03 02:10:01 [error] 629509#0: *1 "/home/k/pythonic/py3_14/k-services/nginx/html/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2026/02/03 02:10:01 [error] 629509#0: *1 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2026/02/03 02:11:20 [error] 629511#0: *5 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/auth/health"
+2026/02/03 02:12:45 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/payment/health"
+2026/02/03 02:13:06 [error] 629512#0: *6 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/admin/health HTTP/1.1", upstream: "http://127.0.0.1:8002/api/admin/health", host: "localhost:8080"
+2026/02/03 02:13:58 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:33 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:33 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:35 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:14:35 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
+2026/02/03 02:15:06 [notice] 629514#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [info] 629514#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629515#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [notice] 629514#0: exiting
+2026/02/03 02:15:06 [info] 629515#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629515#0: exiting
+2026/02/03 02:15:06 [notice] 629513#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [notice] 629510#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [info] 629513#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629513#0: exiting
+2026/02/03 02:15:06 [notice] 629509#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [info] 629510#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629510#0: exiting
+2026/02/03 02:15:06 [info] 629509#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629509#0: exiting
+2026/02/03 02:15:06 [notice] 629516#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [notice] 629508#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [notice] 629511#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [notice] 629512#0: signal 2 (SIGINT) received, exiting
+2026/02/03 02:15:06 [info] 629511#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629511#0: exiting
+2026/02/03 02:15:06 [info] 629512#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629512#0: exiting
+2026/02/03 02:15:06 [info] 629516#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 02:15:06 [notice] 629516#0: exiting
+2026/02/03 02:15:06 [notice] 629510#0: exit
+2026/02/03 02:15:06 [notice] 629512#0: exit
+2026/02/03 02:15:06 [notice] 629514#0: exit
+2026/02/03 02:15:06 [notice] 629509#0: exit
+2026/02/03 02:15:06 [notice] 629513#0: exit
+2026/02/03 02:15:06 [notice] 629511#0: exit
+2026/02/03 02:15:06 [notice] 629516#0: exit
+2026/02/03 02:15:06 [notice] 629515#0: exit
+2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629509
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629509 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629511 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629512 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629513 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629514 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
+2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629511
+2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629510
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629510 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
+2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629515
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629515 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
+2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629516
+2026/02/03 02:15:06 [notice] 629508#0: worker process 629516 exited with code 0
+2026/02/03 02:15:06 [notice] 629508#0: exit
