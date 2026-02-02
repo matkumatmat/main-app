@@ -1,0 +1,28 @@
+oke sekalian saja update informasi untuk claude.md
+jadi begini, 
+1. ya ini development, ketika pindah production memang akan di pisah. saya juga akan membuat
+pyproject per service dan akan tetap menggunakan poetry sebagai package management
+2. shared modules sebetulnya nanti saya hanya isikan konfigurasi untuk logging, enkripsi dan dekripsi saja sih
+rencana saya adalah membuat module enkrip dekrip (saya tetap gunakan argon2 di beberapa tempat) untuk beberapa case
+internal.
+3. database, ya saya akan pisahkan database perservice itu tenang saja hanya saja 3 folder/service saat ini berhubungan dengan
+user management, jadi menurut saya untuk 3 folder ini bisa shared database(karna sama sama user managementr)
+4. interservice komunikasi (selain 3 main app ini) akan gunakan grpc, namun untuk 3 app ini akan gunakan function calling saja.
+5. testing akan di lakukan dan di berikan treatment perservice
+
+
+----update---
+1. oke pertama saya lupa mention satu hal, saya lupa saya sudah update projectstructures
+silahkan anda update juga untuk claude.md
+2. saya akan gunakan aturan, ini untuk frontend dan backend
+- nama folder pascal-case
+- nama file camelcase
+- nama function camelcase
+3. untuk file akan di labeli di belakangnya
+-misal untuk sebuah interface akan di berikan sufix *Interface example : UserInterface.py|UserInterface.tsx
+4. oke encrypt dan decrypt akan gunakan RUST saya ingin module internal encrypt decrypt yang akan di simpan di shared/ yang ada di root. sehingga semua service bisa gunakan ini
+5. sudah saya katakan , modular monolith hanya untuk 3 main app, sedangkan untuk app yang lain akan gunakan rest. ini hanya environtment development saja
+tambah keterangan di calude.md agar tidak melakukan modular monolith untuk selain 3 main app yang berkaitan dengan user management
+6. oke update, karna disini saya akan gunakan sqlmodel, jadi di domain saya akan gunakan sqlmodel, jadi untuk model akan gunakan sqlmodel yang sama agar tidak terjadi boilerplate
+7. redis untuk temporary data bro, cache, session, dan juga pub/sub dan ini shared
+8. aku belum bikin grpc nya masih gatau caranya

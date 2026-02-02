@@ -1,0 +1,2 @@
+tree -J -I '__pycache__|*.py[cod]|*$py.class|.venv|venv|env|.env*|app/env|.mypy_cache|.ruff_cache|.pytest_cache|.coverage|htmlcov|dist|build|*.egg-info|.claude|.vscode|.idea|.DS_Store|Thumbs.db|md|CLAUDE.md|project_structure*.txt|history' --dirsfirst -o ProjectStructures.json
+tree -I '__pycache__|*.py[cod]|*$py.class|.venv|venv|env|.env*|app/env|.mypy_cache|.ruff_cache|.pytest_cache|.coverage|htmlcov|dist|build|*.egg-info|.claude|.vscode|.idea|.DS_Store|Thumbs.db|md|CLAUDE.md|project_structure*.txt|history' --dirsfirst -o ProjectStructures.md

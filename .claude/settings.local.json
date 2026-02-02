@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo lsof:*)",
+      "Bash(systemctl --user status:*)",
+      "Bash(systemctl status:*)",
+      "Bash(pg_ctl:*)"
+    ]
+  }
+}

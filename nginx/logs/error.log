@@ -1,0 +1,112 @@
+2026/02/03 01:41:09 [emerg] 603819#0: open() "/home/k/pythonic/py3_14/k-services/nginx/mime.types" failed (2: No such file or directory) in /home/k/pythonic/py3_14/k-services/nginx/nginx.conf:10
+2026/02/03 01:42:18 [emerg] 604970#0: bind() to 0.0.0.0:80 failed (13: Permission denied)
+2026/02/03 01:44:50 [notice] 606960#0: using the "epoll" event method
+2026/02/03 01:44:50 [notice] 606960#0: openresty/1.27.1.2
+2026/02/03 01:44:50 [notice] 606960#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 01:44:50 [notice] 606960#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 01:44:50 [notice] 606962#0: start worker processes
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606963
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606964
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606965
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606966
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606967
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606968
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606969
+2026/02/03 01:44:50 [notice] 606962#0: start worker process 606970
+2026/02/03 01:45:34 [info] 606963#0: *1 client 127.0.0.1 closed keepalive connection
+2026/02/03 01:45:52 [notice] 608076#0: signal process started
+2026/02/03 01:45:52 [notice] 606962#0: signal 15 (SIGTERM) received from 608076, exiting
+2026/02/03 01:45:52 [notice] 606963#0: exiting
+2026/02/03 01:45:52 [notice] 606965#0: exiting
+2026/02/03 01:45:52 [notice] 606966#0: exiting
+2026/02/03 01:45:52 [notice] 606964#0: exiting
+2026/02/03 01:45:52 [notice] 606967#0: exiting
+2026/02/03 01:45:52 [notice] 606963#0: exit
+2026/02/03 01:45:52 [notice] 606964#0: exit
+2026/02/03 01:45:52 [notice] 606966#0: exit
+2026/02/03 01:45:52 [notice] 606965#0: exit
+2026/02/03 01:45:52 [notice] 606967#0: exit
+2026/02/03 01:45:52 [notice] 606968#0: exiting
+2026/02/03 01:45:52 [notice] 606969#0: exiting
+2026/02/03 01:45:52 [notice] 606970#0: exiting
+2026/02/03 01:45:52 [notice] 606968#0: exit
+2026/02/03 01:45:52 [notice] 606969#0: exit
+2026/02/03 01:45:52 [notice] 606970#0: exit
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606963
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606963 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606967 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606967
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606964
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606964 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606966
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606966 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606965
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606965 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
+2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606968
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606968 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606969 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: worker process 606970 exited with code 0
+2026/02/03 01:45:52 [notice] 606962#0: exit
+2026/02/03 01:45:57 [notice] 608289#0: signal process started
+2026/02/03 01:45:57 [error] 608289#0: open() "/home/k/pythonic/py3_14/k-services/nginx/logs/nginx.pid" failed (2: No such file or directory)
+2026/02/03 01:46:10 [notice] 608766#0: using the "epoll" event method
+2026/02/03 01:46:10 [notice] 608766#0: openresty/1.27.1.2
+2026/02/03 01:46:10 [notice] 608766#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 01:46:10 [notice] 608766#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 01:46:10 [notice] 608766#0: start worker processes
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608767
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608768
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608769
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608770
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608771
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608772
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608773
+2026/02/03 01:46:10 [notice] 608766#0: start worker process 608774
+2026/02/03 01:46:23 [notice] 608774#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608771#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608770#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608772#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608773#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608767#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608766#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [info] 608774#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [info] 608771#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [info] 608770#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [info] 608772#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [info] 608773#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [notice] 608774#0: exiting
+2026/02/03 01:46:23 [notice] 608771#0: exiting
+2026/02/03 01:46:23 [notice] 608770#0: exiting
+2026/02/03 01:46:23 [info] 608767#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [notice] 608772#0: exiting
+2026/02/03 01:46:23 [notice] 608773#0: exiting
+2026/02/03 01:46:23 [notice] 608767#0: exiting
+2026/02/03 01:46:23 [notice] 608769#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [info] 608769#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 01:46:23 [notice] 608769#0: exiting
+2026/02/03 01:46:23 [notice] 608768#0: signal 2 (SIGINT) received, exiting
+2026/02/03 01:46:23 [notice] 608768#0: exiting
+2026/02/03 01:46:23 [notice] 608771#0: exit
+2026/02/03 01:46:23 [notice] 608774#0: exit
+2026/02/03 01:46:23 [notice] 608767#0: exit
+2026/02/03 01:46:23 [notice] 608772#0: exit
+2026/02/03 01:46:23 [notice] 608769#0: exit
+2026/02/03 01:46:23 [notice] 608773#0: exit
+2026/02/03 01:46:23 [notice] 608768#0: exit
+2026/02/03 01:46:23 [notice] 608770#0: exit
+2026/02/03 01:46:23 [notice] 608766#0: signal 17 (SIGCHLD) received from 608771
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608771 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: signal 29 (SIGIO) received
+2026/02/03 01:46:23 [notice] 608766#0: signal 17 (SIGCHLD) received from 608770
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608767 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608768 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608769 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608770 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608772 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608773 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: worker process 608774 exited with code 0
+2026/02/03 01:46:23 [notice] 608766#0: exit
