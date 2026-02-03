@@ -47,7 +47,8 @@ class Settings(BaseSettings):
     jwt_refresh_token_expire_days: int = Field(default=7, ge=1, le=90)
 
     # CORS Configuration
-    cors_origins: list[str] = Field(default_factory=list)
+    # cors_origins: list[str] = Field(default_factory=list)
+    cors_origins: str | list[str] = Field(default_factory=list)    
 
     # Application Environment
     environment: Literal["development", "staging", "production"] = "development"
@@ -79,6 +80,18 @@ class Settings(BaseSettings):
         if isinstance(v, str):
             return [origin.strip() for origin in v.split(",") if origin.strip()]
         return v
+
+    @property
+    def corsOriginsList(self) -> list[str]:
+        """
+        Helper property to guarantee List[str] type for middleware.
+        Even though validator ensures this, type checkers need explicit hint.
+        """
+        if isinstance(self.cors_origins, str):
+            # Fallback if validator somehow failed (should impossible)
+            return [self.cors_origins] 
+        return self.cors_origins    
+
 
     @field_validator("database_url")
     @classmethod

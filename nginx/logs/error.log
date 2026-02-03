@@ -1,188 +1,325 @@
-2026/02/03 01:41:09 [emerg] 603819#0: open() "/home/k/pythonic/py3_14/k-services/nginx/mime.types" failed (2: No such file or directory) in /home/k/pythonic/py3_14/k-services/nginx/nginx.conf:10
-2026/02/03 01:42:18 [emerg] 604970#0: bind() to 0.0.0.0:80 failed (13: Permission denied)
-2026/02/03 01:44:50 [notice] 606960#0: using the "epoll" event method
-2026/02/03 01:44:50 [notice] 606960#0: openresty/1.27.1.2
-2026/02/03 01:44:50 [notice] 606960#0: OS: Linux 6.18.3-arch1-1
-2026/02/03 01:44:50 [notice] 606960#0: getrlimit(RLIMIT_NOFILE): 524288:524288
-2026/02/03 01:44:50 [notice] 606962#0: start worker processes
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606963
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606964
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606965
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606966
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606967
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606968
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606969
-2026/02/03 01:44:50 [notice] 606962#0: start worker process 606970
-2026/02/03 01:45:34 [info] 606963#0: *1 client 127.0.0.1 closed keepalive connection
-2026/02/03 01:45:52 [notice] 608076#0: signal process started
-2026/02/03 01:45:52 [notice] 606962#0: signal 15 (SIGTERM) received from 608076, exiting
-2026/02/03 01:45:52 [notice] 606963#0: exiting
-2026/02/03 01:45:52 [notice] 606965#0: exiting
-2026/02/03 01:45:52 [notice] 606966#0: exiting
-2026/02/03 01:45:52 [notice] 606964#0: exiting
-2026/02/03 01:45:52 [notice] 606967#0: exiting
-2026/02/03 01:45:52 [notice] 606963#0: exit
-2026/02/03 01:45:52 [notice] 606964#0: exit
-2026/02/03 01:45:52 [notice] 606966#0: exit
-2026/02/03 01:45:52 [notice] 606965#0: exit
-2026/02/03 01:45:52 [notice] 606967#0: exit
-2026/02/03 01:45:52 [notice] 606968#0: exiting
-2026/02/03 01:45:52 [notice] 606969#0: exiting
-2026/02/03 01:45:52 [notice] 606970#0: exiting
-2026/02/03 01:45:52 [notice] 606968#0: exit
-2026/02/03 01:45:52 [notice] 606969#0: exit
-2026/02/03 01:45:52 [notice] 606970#0: exit
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606963
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606963 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606967 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606967
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606964
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606964 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606966
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606966 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606965
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606965 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: signal 29 (SIGIO) received
-2026/02/03 01:45:52 [notice] 606962#0: signal 17 (SIGCHLD) received from 606968
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606968 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606969 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: worker process 606970 exited with code 0
-2026/02/03 01:45:52 [notice] 606962#0: exit
-2026/02/03 01:45:57 [notice] 608289#0: signal process started
-2026/02/03 01:45:57 [error] 608289#0: open() "/home/k/pythonic/py3_14/k-services/nginx/logs/nginx.pid" failed (2: No such file or directory)
-2026/02/03 01:46:10 [notice] 608766#0: using the "epoll" event method
-2026/02/03 01:46:10 [notice] 608766#0: openresty/1.27.1.2
-2026/02/03 01:46:10 [notice] 608766#0: OS: Linux 6.18.3-arch1-1
-2026/02/03 01:46:10 [notice] 608766#0: getrlimit(RLIMIT_NOFILE): 524288:524288
-2026/02/03 01:46:10 [notice] 608766#0: start worker processes
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608767
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608768
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608769
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608770
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608771
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608772
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608773
-2026/02/03 01:46:10 [notice] 608766#0: start worker process 608774
-2026/02/03 01:46:23 [notice] 608774#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608771#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608770#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608772#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608773#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608767#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608766#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [info] 608774#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [info] 608771#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [info] 608770#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [info] 608772#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [info] 608773#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [notice] 608774#0: exiting
-2026/02/03 01:46:23 [notice] 608771#0: exiting
-2026/02/03 01:46:23 [notice] 608770#0: exiting
-2026/02/03 01:46:23 [info] 608767#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [notice] 608772#0: exiting
-2026/02/03 01:46:23 [notice] 608773#0: exiting
-2026/02/03 01:46:23 [notice] 608767#0: exiting
-2026/02/03 01:46:23 [notice] 608769#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [info] 608769#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 01:46:23 [notice] 608769#0: exiting
-2026/02/03 01:46:23 [notice] 608768#0: signal 2 (SIGINT) received, exiting
-2026/02/03 01:46:23 [notice] 608768#0: exiting
-2026/02/03 01:46:23 [notice] 608771#0: exit
-2026/02/03 01:46:23 [notice] 608774#0: exit
-2026/02/03 01:46:23 [notice] 608767#0: exit
-2026/02/03 01:46:23 [notice] 608772#0: exit
-2026/02/03 01:46:23 [notice] 608769#0: exit
-2026/02/03 01:46:23 [notice] 608773#0: exit
-2026/02/03 01:46:23 [notice] 608768#0: exit
-2026/02/03 01:46:23 [notice] 608770#0: exit
-2026/02/03 01:46:23 [notice] 608766#0: signal 17 (SIGCHLD) received from 608771
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608771 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: signal 29 (SIGIO) received
-2026/02/03 01:46:23 [notice] 608766#0: signal 17 (SIGCHLD) received from 608770
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608767 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608768 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608769 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608770 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608772 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608773 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: worker process 608774 exited with code 0
-2026/02/03 01:46:23 [notice] 608766#0: exit
-2026/02/03 02:09:40 [notice] 629508#0: using the "epoll" event method
-2026/02/03 02:09:40 [notice] 629508#0: openresty/1.27.1.2
-2026/02/03 02:09:40 [notice] 629508#0: OS: Linux 6.18.3-arch1-1
-2026/02/03 02:09:40 [notice] 629508#0: getrlimit(RLIMIT_NOFILE): 524288:524288
-2026/02/03 02:09:40 [notice] 629508#0: start worker processes
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629509
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629510
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629511
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629512
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629513
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629514
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629515
-2026/02/03 02:09:40 [notice] 629508#0: start worker process 629516
-2026/02/03 02:10:01 [error] 629509#0: *1 "/home/k/pythonic/py3_14/k-services/nginx/html/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
-2026/02/03 02:10:01 [error] 629509#0: *1 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
-2026/02/03 02:11:20 [error] 629511#0: *5 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/auth/health"
-2026/02/03 02:12:45 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/payment/health"
-2026/02/03 02:13:06 [error] 629512#0: *6 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/admin/health HTTP/1.1", upstream: "http://127.0.0.1:8002/api/admin/health", host: "localhost:8080"
-2026/02/03 02:13:58 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:33 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:33 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:34 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:35 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:14:35 [error] 629513#0: *9 open() "/home/k/pythonic/py3_14/k-services/nginx/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/api/admin/health"
-2026/02/03 02:15:06 [notice] 629514#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [info] 629514#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629515#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [notice] 629514#0: exiting
-2026/02/03 02:15:06 [info] 629515#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629515#0: exiting
-2026/02/03 02:15:06 [notice] 629513#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [notice] 629510#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [info] 629513#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629513#0: exiting
-2026/02/03 02:15:06 [notice] 629509#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [info] 629510#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629510#0: exiting
-2026/02/03 02:15:06 [info] 629509#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629509#0: exiting
-2026/02/03 02:15:06 [notice] 629516#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [notice] 629508#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [notice] 629511#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [notice] 629512#0: signal 2 (SIGINT) received, exiting
-2026/02/03 02:15:06 [info] 629511#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629511#0: exiting
-2026/02/03 02:15:06 [info] 629512#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629512#0: exiting
-2026/02/03 02:15:06 [info] 629516#0: epoll_wait() failed (4: Interrupted system call)
-2026/02/03 02:15:06 [notice] 629516#0: exiting
-2026/02/03 02:15:06 [notice] 629510#0: exit
-2026/02/03 02:15:06 [notice] 629512#0: exit
-2026/02/03 02:15:06 [notice] 629514#0: exit
-2026/02/03 02:15:06 [notice] 629509#0: exit
-2026/02/03 02:15:06 [notice] 629513#0: exit
-2026/02/03 02:15:06 [notice] 629511#0: exit
-2026/02/03 02:15:06 [notice] 629516#0: exit
-2026/02/03 02:15:06 [notice] 629515#0: exit
-2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629509
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629509 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629511 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629512 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629513 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629514 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
-2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629511
-2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629510
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629510 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
-2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629515
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629515 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: signal 29 (SIGIO) received
-2026/02/03 02:15:06 [notice] 629508#0: signal 17 (SIGCHLD) received from 629516
-2026/02/03 02:15:06 [notice] 629508#0: worker process 629516 exited with code 0
-2026/02/03 02:15:06 [notice] 629508#0: exit
+2026/02/03 05:03:28 [notice] 776638#0: using the "epoll" event method
+2026/02/03 05:03:28 [notice] 776638#0: openresty/1.27.1.2
+2026/02/03 05:03:28 [notice] 776638#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 05:03:28 [notice] 776638#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 05:03:28 [notice] 776638#0: start worker processes
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776640
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776641
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776642
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776643
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776644
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776645
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776646
+2026/02/03 05:03:28 [notice] 776638#0: start worker process 776647
+2026/02/03 05:06:05 [notice] 776647#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [notice] 776643#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [notice] 776646#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776647#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [info] 776643#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776647#0: exiting
+2026/02/03 05:06:05 [notice] 776643#0: exiting
+2026/02/03 05:06:05 [info] 776646#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776646#0: exiting
+2026/02/03 05:06:05 [notice] 776644#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776644#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776644#0: exiting
+2026/02/03 05:06:05 [notice] 776642#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776642#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776642#0: exiting
+2026/02/03 05:06:05 [notice] 776641#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776641#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776641#0: exiting
+2026/02/03 05:06:05 [notice] 776640#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776640#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776640#0: exiting
+2026/02/03 05:06:05 [notice] 776646#0: exit
+2026/02/03 05:06:05 [notice] 776642#0: exit
+2026/02/03 05:06:05 [notice] 776647#0: exit
+2026/02/03 05:06:05 [notice] 776641#0: exit
+2026/02/03 05:06:05 [notice] 776643#0: exit
+2026/02/03 05:06:05 [notice] 776640#0: exit
+2026/02/03 05:06:05 [notice] 776638#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [notice] 776645#0: signal 2 (SIGINT) received, exiting
+2026/02/03 05:06:05 [info] 776645#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 05:06:05 [notice] 776645#0: exiting
+2026/02/03 05:06:05 [notice] 776644#0: exit
+2026/02/03 05:06:05 [notice] 776645#0: exit
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776643
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776643 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: signal 29 (SIGIO) received
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776647
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776647 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776640 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: signal 29 (SIGIO) received
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776640
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776646 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: signal 29 (SIGIO) received
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776644
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776644 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776645 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: signal 29 (SIGIO) received
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776641
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776641 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: signal 29 (SIGIO) received
+2026/02/03 05:06:05 [notice] 776638#0: signal 17 (SIGCHLD) received from 776642
+2026/02/03 05:06:05 [notice] 776638#0: worker process 776642 exited with code 0
+2026/02/03 05:06:05 [notice] 776638#0: exit
+2026/02/03 06:51:00 [notice] 812968#0: using the "epoll" event method
+2026/02/03 06:51:00 [notice] 812968#0: openresty/1.27.1.2
+2026/02/03 06:51:00 [notice] 812968#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 06:51:00 [notice] 812968#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 06:51:00 [notice] 812968#0: start worker processes
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812969
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812970
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812971
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812972
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812973
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812974
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812975
+2026/02/03 06:51:00 [notice] 812968#0: start worker process 812976
+2026/02/03 06:51:11 [info] 812969#0: *1 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:12 [info] 812970#0: *4 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:12 [info] 812971#0: *7 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:13 [info] 812972#0: *10 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:13 [info] 812973#0: *13 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:14 [info] 812974#0: *16 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:14 [info] 812975#0: *18 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:15 [info] 812976#0: *20 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:15 [info] 812969#0: *22 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:37 [info] 812969#0: *24 client 127.0.0.1 closed keepalive connection
+2026/02/03 06:51:46 [info] 812969#0: *26 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/03 06:52:36 [notice] 812975#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812976#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812974#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812973#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812971#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812970#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [info] 812971#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [notice] 812969#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [info] 812976#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [info] 812974#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [info] 812973#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [notice] 812971#0: exiting
+2026/02/03 06:52:36 [info] 812970#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [notice] 812976#0: exiting
+2026/02/03 06:52:36 [info] 812975#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [info] 812969#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [notice] 812975#0: exiting
+2026/02/03 06:52:36 [notice] 812974#0: exiting
+2026/02/03 06:52:36 [notice] 812973#0: exiting
+2026/02/03 06:52:36 [notice] 812970#0: exiting
+2026/02/03 06:52:36 [notice] 812969#0: exiting
+2026/02/03 06:52:36 [notice] 812972#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [info] 812972#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 06:52:36 [notice] 812972#0: exiting
+2026/02/03 06:52:36 [notice] 812976#0: exit
+2026/02/03 06:52:36 [notice] 812971#0: exit
+2026/02/03 06:52:36 [notice] 812973#0: exit
+2026/02/03 06:52:36 [notice] 812974#0: exit
+2026/02/03 06:52:36 [notice] 812975#0: exit
+2026/02/03 06:52:36 [notice] 812969#0: exit
+2026/02/03 06:52:36 [notice] 812970#0: exit
+2026/02/03 06:52:36 [notice] 812972#0: exit
+2026/02/03 06:52:36 [notice] 812968#0: signal 2 (SIGINT) received, exiting
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812975
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812974 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812975 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: signal 29 (SIGIO) received
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812974
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812969 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812970 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: signal 29 (SIGIO) received
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812969
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812973
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812973 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: signal 29 (SIGIO) received
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812971
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812971 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812976 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: signal 29 (SIGIO) received
+2026/02/03 06:52:36 [notice] 812968#0: signal 17 (SIGCHLD) received from 812972
+2026/02/03 06:52:36 [notice] 812968#0: worker process 812972 exited with code 0
+2026/02/03 06:52:36 [notice] 812968#0: exit
+2026/02/03 06:57:46 [notice] 819313#0: using the "epoll" event method
+2026/02/03 06:57:46 [notice] 819313#0: openresty/1.27.1.2
+2026/02/03 06:57:46 [notice] 819313#0: OS: Linux 6.18.3-arch1-1
+2026/02/03 06:57:46 [notice] 819313#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/03 06:57:46 [notice] 819313#0: start worker processes
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819314
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819315
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819316
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819317
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819318
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819319
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819320
+2026/02/03 06:57:46 [notice] 819313#0: start worker process 819321
+2026/02/03 06:58:51 [info] 819315#0: *2 client 192.168.43.210 closed keepalive connection
+2026/02/03 06:59:10 [info] 819316#0: *5 client 192.168.43.210 closed keepalive connection
+2026/02/03 06:59:12 [info] 819314#0: *1 client 192.168.43.210 closed keepalive connection (104: Connection reset by peer)
+2026/02/03 07:25:47 [info] 819317#0: *15 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:47 [info] 819318#0: *18 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819319#0: *21 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819320#0: *24 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819321#0: *27 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819314#0: *30 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819314#0: *32 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:25:48 [info] 819314#0: *34 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:19 [info] 819314#0: *35 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:19 [info] 819314#0: *37 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:20 [info] 819314#0: *39 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:20 [info] 819314#0: *41 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:20 [info] 819314#0: *43 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:20 [info] 819314#0: *45 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:20 [info] 819314#0: *47 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:21 [info] 819314#0: *49 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:21 [info] 819314#0: *51 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:21 [info] 819314#0: *53 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:21 [info] 819314#0: *55 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:21 [info] 819314#0: *57 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:22 [info] 819314#0: *59 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:22 [info] 819315#0: *61 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:22 [info] 819315#0: *63 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:22 [info] 819315#0: *65 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:23 [info] 819315#0: *67 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:23 [info] 819315#0: *69 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:23 [info] 819315#0: *71 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:23 [info] 819315#0: *73 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:23 [info] 819315#0: *75 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:24 [info] 819315#0: *77 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:24 [info] 819315#0: *79 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:24 [info] 819315#0: *81 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:24 [info] 819315#0: *83 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:25 [info] 819315#0: *85 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:25 [info] 819315#0: *87 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:25 [info] 819315#0: *89 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:25 [info] 819315#0: *91 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:25 [info] 819316#0: *93 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:26 [info] 819316#0: *95 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:26 [info] 819316#0: *97 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:26 [info] 819316#0: *99 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:26 [info] 819316#0: *101 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:26 [info] 819316#0: *103 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:27 [info] 819316#0: *105 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:27 [info] 819316#0: *107 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:27 [info] 819316#0: *109 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:27 [info] 819316#0: *111 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:28 [info] 819316#0: *113 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:28 [info] 819316#0: *115 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:28 [info] 819316#0: *117 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:28 [info] 819316#0: *119 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:28 [info] 819316#0: *121 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:29 [info] 819316#0: *123 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:29 [info] 819317#0: *125 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:29 [info] 819317#0: *127 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:29 [info] 819317#0: *129 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:30 [info] 819317#0: *131 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:30 [info] 819317#0: *133 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:30 [info] 819317#0: *135 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:30 [info] 819317#0: *137 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:30 [info] 819317#0: *139 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:31 [info] 819317#0: *141 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:31 [info] 819317#0: *143 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:31 [info] 819317#0: *145 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:31 [info] 819317#0: *147 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:32 [info] 819317#0: *149 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:32 [info] 819317#0: *151 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:32 [info] 819317#0: *153 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:32 [info] 819317#0: *155 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:32 [info] 819318#0: *157 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:33 [info] 819318#0: *159 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:33 [info] 819318#0: *161 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:33 [info] 819318#0: *163 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:33 [info] 819318#0: *165 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:34 [info] 819318#0: *167 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:34 [info] 819318#0: *169 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:34 [info] 819318#0: *171 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:34 [info] 819318#0: *173 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:34 [info] 819318#0: *175 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:35 [info] 819318#0: *177 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:35 [info] 819318#0: *179 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:35 [info] 819318#0: *181 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:35 [info] 819318#0: *183 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:36 [info] 819318#0: *185 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:36 [info] 819318#0: *187 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:36 [info] 819319#0: *189 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:36 [info] 819319#0: *191 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:36 [info] 819319#0: *193 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:37 [info] 819319#0: *195 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:37 [info] 819319#0: *197 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:37 [info] 819319#0: *199 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:37 [info] 819319#0: *201 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:38 [info] 819319#0: *203 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:38 [info] 819319#0: *205 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:38 [info] 819319#0: *207 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:38 [info] 819319#0: *209 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:38 [info] 819319#0: *211 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:39 [info] 819319#0: *213 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:39 [info] 819319#0: *215 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:39 [info] 819319#0: *217 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:39 [info] 819319#0: *219 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:40 [info] 819320#0: *221 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:40 [info] 819320#0: *223 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:40 [info] 819320#0: *225 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:40 [info] 819320#0: *227 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:40 [info] 819320#0: *229 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:41 [info] 819320#0: *231 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:41 [info] 819320#0: *233 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:41 [info] 819320#0: *235 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:41 [info] 819320#0: *237 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:26:41 [info] 819320#0: *239 client 192.168.43.190 closed keepalive connection
+2026/02/03 07:31:04 [notice] 819321#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [notice] 819320#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [notice] 819319#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [notice] 819318#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [info] 819321#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [info] 819320#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [info] 819319#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [notice] 819321#0: exiting
+2026/02/03 07:31:04 [notice] 819320#0: exiting
+2026/02/03 07:31:04 [info] 819318#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [notice] 819319#0: exiting
+2026/02/03 07:31:04 [notice] 819318#0: exiting
+2026/02/03 07:31:04 [notice] 819317#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [info] 819317#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [notice] 819317#0: exiting
+2026/02/03 07:31:04 [notice] 819316#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [notice] 819315#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [info] 819316#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [info] 819315#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [notice] 819316#0: exiting
+2026/02/03 07:31:04 [notice] 819315#0: exiting
+2026/02/03 07:31:04 [notice] 819314#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [info] 819314#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/03 07:31:04 [notice] 819314#0: exiting
+2026/02/03 07:31:04 [notice] 819321#0: exit
+2026/02/03 07:31:04 [notice] 819319#0: exit
+2026/02/03 07:31:04 [notice] 819320#0: exit
+2026/02/03 07:31:04 [notice] 819317#0: exit
+2026/02/03 07:31:04 [notice] 819315#0: exit
+2026/02/03 07:31:04 [notice] 819316#0: exit
+2026/02/03 07:31:04 [notice] 819314#0: exit
+2026/02/03 07:31:04 [notice] 819313#0: signal 2 (SIGINT) received, exiting
+2026/02/03 07:31:04 [notice] 819318#0: exit
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819321
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819321 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819320
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819320 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819317
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819317 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819316
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819316 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819315
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819315 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819314
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819314 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819319 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: signal 29 (SIGIO) received
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819319
+2026/02/03 07:31:04 [notice] 819313#0: signal 17 (SIGCHLD) received from 819318
+2026/02/03 07:31:04 [notice] 819313#0: worker process 819318 exited with code 0
+2026/02/03 07:31:04 [notice] 819313#0: exit

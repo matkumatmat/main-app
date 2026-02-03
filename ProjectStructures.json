@@ -9,7 +9,8 @@
           {"type":"file","name":"__init__.py"}
         ]},
         {"type":"directory","name":"infrastructure","contents":[
-          {"type":"file","name":"__init__.py"}
+          {"type":"file","name":"__init__.py"},
+          {"type":"file","name":"router.py"}
         ]},
         {"type":"file","name":"__init__.py"}
       ]},
@@ -26,7 +27,8 @@
           {"type":"file","name":"__init__.py"}
         ]},
         {"type":"directory","name":"infrastructure","contents":[
-          {"type":"file","name":"__init__.py"}
+          {"type":"file","name":"__init__.py"},
+          {"type":"file","name":"router.py"}
         ]},
         {"type":"file","name":"__init__.py"}
       ]},
@@ -43,7 +45,8 @@
           {"type":"file","name":"__init__.py"}
         ]},
         {"type":"directory","name":"infrastructure","contents":[
-          {"type":"file","name":"__init__.py"}
+          {"type":"file","name":"__init__.py"},
+          {"type":"file","name":"router.py"}
         ]},
         {"type":"file","name":"__init__.py"}
       ]},
@@ -87,7 +90,16 @@
         ]},
         {"type":"directory","name":"redis","contents":[
           {"type":"file","name":"client.py"}
-        ]}
+        ]},
+        {"type":"file","name":"cryptoFactory.py"},
+        {"type":"file","name":"loggingFactory.py"}
+      ]},
+      {"type":"directory","name":"rust-crypto","contents":[
+        {"type":"directory","name":"src","contents":[
+          {"type":"file","name":"lib.rs"}
+        ]},
+        {"type":"file","name":"Cargo.toml"},
+        {"type":"file","name":"pyproject.toml"}
       ]}
     ]},
     {"type":"file","name":"Dockerfile"},
@@ -95,12 +107,14 @@
     {"type":"file","name":"ProjectStructures.json"},
     {"type":"file","name":"ProjectStructures.md"},
     {"type":"file","name":"README.md"},
+    {"type":"file","name":"admin_server.py"},
     {"type":"file","name":"architecture.md"},
     {"type":"file","name":"compose.yml"},
     {"type":"file","name":"poetry.lock"},
+    {"type":"file","name":"public_server.py"},
     {"type":"file","name":"pyproject.toml"},
     {"type":"file","name":"typing.txt"}
   ]}
 ,
-  {"type":"report","directories":36,"files":36}
+  {"type":"report","directories":38,"files":46}
 ]

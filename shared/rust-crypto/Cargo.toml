@@ -1,0 +1,15 @@
+[package]
+name = "k_services_crypto"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "k_services_crypto"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.28.0", features = ["extension-module"] } 
+aes-gcm = "0.10.3"
+argon2 = "0.5.3"
+rand = "0.8.5"
+base64 = "0.21.7"

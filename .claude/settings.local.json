@@ -4,7 +4,14 @@
       "Bash(sudo lsof:*)",
       "Bash(systemctl --user status:*)",
       "Bash(systemctl status:*)",
-      "Bash(pg_ctl:*)"
+      "Bash(pg_ctl:*)",
+      "Bash(cargo build:*)",
+      "Bash(python:*)",
+      "Bash(poetry add:*)",
+      "Bash(poetry run python:*)",
+      "Bash(poetry run maturin --help:*)",
+      "Bash(pip install:*)",
+      "Bash(poetry show:*)"
     ]
   }
 }

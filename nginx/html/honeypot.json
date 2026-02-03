@@ -1,0 +1,11 @@
+{
+  "error": "rate_limit_exceeded",
+  "status": 429,
+  "message": "Nice try, Diddy! You've been rate limited.",
+  "details": {
+    "reason": "Too many requests from your IP address",
+    "action": "Your IP has been logged for security monitoring",
+    "retry_after": 60
+  },
+  "trolled_by": "K-Services Security Team"
+}

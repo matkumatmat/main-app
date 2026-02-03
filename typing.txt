@@ -26,3 +26,123 @@ tambah keterangan di calude.md agar tidak melakukan modular monolith untuk selai
 6. oke update, karna disini saya akan gunakan sqlmodel, jadi di domain saya akan gunakan sqlmodel, jadi untuk model akan gunakan sqlmodel yang sama agar tidak terjadi boilerplate
 7. redis untuk temporary data bro, cache, session, dan juga pub/sub dan ini shared
 8. aku belum bikin grpc nya masih gatau caranya
+
+
+--update--
+1. oke auditlog ada di userlog,
+2. security,applicationlog, performance log, errorlog ini ada di system log cuma bedain label type nya aja
+3. dan aku prefer ke json output buat log nya, disana ada keterangannya berikut ms, dan juga label dan pesaannya aja (buat error harus detail errornya apa)
+4. oke orkestrasti di root buat 3 service ini bakal pake nginx??? rekomen ga?? butuh approach ini
+5. kok pake pkdf2??? kan aku pake argon2??
+6. oke bisa update claude.md?? dengan tambahan info juga, aturan main bener bener harus maksimalin penggunaan pydantic-settings, fastapimiddleware, fastapicors intinya ga native lah
+7. ya buat rust aku setuju, intinya harus bisa di pake aja 
+
+4 Missing Factory Components:                                                                       
+                                                                                                      
+  1. Request ID Middleware ❌                                                                         
+                                                                                                      
+  What: Middleware yang auto-generate/forward request_id                                              
+  Why: Buat distributed tracing (nginx → backend → database logs semua punya request_id sama)         
+  Where: shared/backend/middleware/requestIdMiddleware.py                                             
+                                                                                                      
+  Example flow:                                                                                       
+  Request → Nginx (buat request_id) → FastAPI Middleware (bind context) → Logs semua include          
+  request_id                                                                                          
+                                                                                                      
+  ---                                                                                                 
+  2. Exception Handlers + Error Response Factory ❌                                                   
+                                                                                                      
+  What: Standardized error response format + custom exception classes                                 
+  Why: Sekarang kalo error, FastAPI return default error. Harusnya return structured JSON yang        
+  konsisten                                                                                           
+  Where:                                                                                              
+  - shared/backend/exceptions/errorResponse.py (factory)                                              
+  - shared/backend/exceptions/baseException.py (custom exceptions)                                    
+                                                                                                      
+  Example output:                                                                                     
+  {                                                                                                   
+    "error": {                                                                                        
+      "code": "USER_NOT_FOUND",                                                                       
+      "message": "User with email not found",                                                         
+      "field": "email"                                                                                
+    },                                                                                                
+    "request_id": "req-123",                                                                          
+    "timestamp": "2026-02-03T10:30:45Z"                                                               
+  }                                                                                                   
+                                                                                                      
+  ---                                                                                                 
+  3. Wire Lifecycle Hooks ke Server Files ❌                                                          
+                                                                                                      
+  What: Panggil initDb(), initRedis(), setupLogging() di startup                                      
+  Why: Functions udah ada tapi BELUM DIPAKE di admin_server.py & public_server.py                     
+  Where: Update admin_server.py & public_server.py                                                    
+                                                                                                      
+  Current state:                                                                                      
+  # admin_server.py - KOSONG!                                                                         
+  app = FastAPI(title='Admin Server')                                                                 
+  # ❌ NO startup/shutdown hooks                                                                      
+                                                                                                      
+  Should be:                                                                                          
+  @app.on_event("startup")                                                                            
+  async def startup():                                                                                
+      setupLogging()                                                                                  
+      await initDb()                                                                                  
+      await initRedis()                                                                               
+                                                                                                      
+  @app.on_event("shutdown")                                                                           
+  async def shutdown():                                                                               
+      await closeDb()                                                                                 
+      await closeRedis()                                                                              
+                                                                                                      
+  ---                                                                                                 
+  4. Unified Health Check Endpoint ❌                                                                 
+                                                                                                      
+  What: Endpoint /health yang check status DB, Redis, Crypto                                          
+  Why: Monitoring & debugging - tau component mana yang down                                          
+  Where: shared/backend/health/healthCheck.py + wired to both servers                                 
+                                                                                                      
+  Example response:                                                                                   
+  {                                                                                                   
+    "status": "healthy",                                                                              
+    "checks": {                                                                                       
+      "database": {"status": "up", "latency_ms": 5},                                                  
+      "redis": {"status": "up", "latency_ms": 2},                                                     
+      "crypto": {"status": "up"}                                                                      
+    },                                                                                                
+    "timestamp": "2026-02-03T10:30:45Z"                                                               
+  }                                                                                                   
+                                                                                                      
+  ---                                                                                                 
+  Estimasi total: 20-25 menit untuk complete semua.                                                   
+                                                                                                      
+  Mau mulai dari mana? Gue suggest urutan:                                                            
+  1. Exception Handlers (foundation)                                                                  
+  2. Request ID Middleware                                                                            
+  3. Wire Lifecycle Hooks                                                                             
+  4. Health Check
+
+
+  Summary Hari Ini (COMPLETE):                                                                        
+                                                                                                      
+  ✅ Infrastructure Factory (95% Done):                                                               
+                                                                                                      
+  1. Phase 1: Config & Settings ✅                                                                    
+  2. Phase 2: Logging (Enhanced) + UUID7 ✅                                                           
+  3. Phase 3: Database + Redis + Base Repository ✅                                                   
+  4. Phase 4: Rust Crypto Module ✅                                                                   
+  5. Phase 6: Nginx + OpenResty + Rate Limiting + Honeypot "Nice Try, Diddy!" ✅                      
+  6. .gitignore: Updated (Rust, nginx logs) ✅                                                        
+  7. CLAUDE.md: Enhanced dengan shared/ inventory & Rust install guide ✅                             
+                                                                                                      
+  ---                                                                                                 
+  Besok Tinggal Complete (4 Items):                                                                   
+                                                                                                      
+  1. Request ID Middleware - Distributed tracing                                                      
+  2. Exception Handlers + Error Response - Standardized error format                                  
+  3. Wire Lifecycle Hooks - Connect initDb/initRedis ke servers                                       
+  4. Health Check Endpoint - Monitoring DB/Redis/Crypto                                               
+                                                                                                      
+  Estimasi: 20-25 menit untuk selesaiin semua.                                                        
+                                                                                                      
+  ---                                                                                                 
+  Setelah itu → SIAP main application (KAuthApp, KSysAdmin, KSysPayment)! 🚀

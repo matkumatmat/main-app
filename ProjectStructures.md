@@ -6,7 +6,8 @@
 │   │   ├── domain
 │   │   │   └── __init__.py
 │   │   ├── infrastructure
-│   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   └── router.py
 │   │   └── __init__.py
 │   └── frontend
 │       └── package.json
@@ -17,7 +18,8 @@
 │   │   ├── domain
 │   │   │   └── __init__.py
 │   │   ├── infrastructure
-│   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   └── router.py
 │   │   └── __init__.py
 │   └── frontend
 │       └── package.json
@@ -28,7 +30,8 @@
 │   │   ├── domain
 │   │   │   └── __init__.py
 │   │   ├── infrastructure
-│   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   └── router.py
 │   │   └── __init__.py
 │   └── frontend
 │       └── package.json
@@ -53,22 +56,31 @@
 │   └── testFactories.sh
 ├── security
 ├── shared
-│   └── backend
-│       ├── config
-│       │   └── settings.py
-│       ├── database
-│       │   └── engine.py
-│       └── redis
-│           └── client.py
+│   ├── backend
+│   │   ├── config
+│   │   │   └── settings.py
+│   │   ├── database
+│   │   │   └── engine.py
+│   │   ├── redis
+│   │   │   └── client.py
+│   │   ├── cryptoFactory.py
+│   │   └── loggingFactory.py
+│   └── rust-crypto
+│       ├── src
+│       │   └── lib.rs
+│       ├── Cargo.toml
+│       └── pyproject.toml
 ├── Dockerfile
 ├── FACTORY_SETUP_PLAN.md
 ├── ProjectStructures.json
 ├── ProjectStructures.md
 ├── README.md
+├── admin_server.py
 ├── architecture.md
 ├── compose.yml
 ├── poetry.lock
+├── public_server.py
 ├── pyproject.toml
 └── typing.txt
 
-36 directories, 36 files
+38 directories, 46 files

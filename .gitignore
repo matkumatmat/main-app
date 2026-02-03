@@ -24,3 +24,19 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+# --- Rust / Cargo ---
+shared/rust-crypto/target/
+shared/rust-crypto/Cargo.lock
+*.so
+*.dylib
+*.dll
+
+# --- Nginx ---
+nginx/logs/*.log
+nginx/logs/*.pid
+nginx/*_temp/
+
+# Keep honeypot HTML but ignore DOS attempt logs
+!nginx/html/
+nginx/logs/dos_attempts.log

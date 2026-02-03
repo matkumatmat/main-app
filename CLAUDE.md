@@ -137,6 +137,24 @@ poetry update
 poetry show
 ```
 
+### Docker & Infrastructure
+```bash
+# Start infrastructure services (PostgreSQL + Redis)
+docker compose up -d
+
+# Stop infrastructure services
+docker compose down
+
+# View logs
+docker compose logs -f
+
+# Check service status
+docker compose ps
+
+# Rebuild containers
+docker compose up -d --build
+```
+
 ### Linting
 ```bash
 # Run linter (when configured)
@@ -169,6 +187,33 @@ pytest path/to/test_file.py
 # Run with coverage
 pytest --cov
 ```
+
+### Database Migrations (KSysAdmin ONLY)
+KSysAdmin owns all schema changes. Never create migrations in KAuthApp or KSysPayment.
+
+```bash
+# Create a new migration (from repository root)
+cd KSysAdmin/backend/infrastructure/database
+alembic revision --autogenerate -m "description of changes"
+
+# Apply migrations (upgrade to latest)
+alembic upgrade head
+
+# Downgrade one revision
+alembic downgrade -1
+
+# View migration history
+alembic history
+
+# View current database version
+alembic current
+```
+
+**Critical**: After creating migration in KSysAdmin:
+1. Update KSysAdmin models first
+2. Create Alembic migration
+3. Apply migration to database
+4. Sync models in KAuthApp and KSysPayment (duplicate the changes)
 
 ### Frontend Build (React/Astro)
 ```bash
@@ -233,6 +278,54 @@ nginx -s stop
 **Access points**:
 - http://localhost (nginx entry point)
 - Backend services NOT accessed directly (use nginx routes)
+
+### Development Startup Order
+**CRITICAL**: Services must start in this order to avoid connection errors:
+
+1. **Infrastructure** (PostgreSQL + Redis):
+   ```bash
+   docker compose up -d
+   ```
+
+2. **Rust Crypto Module** (if not installed):
+   ```bash
+   cd shared/rust-crypto && pip install -e . && cd ../..
+   ```
+
+3. **Database Migrations** (KSysAdmin owns schema):
+   ```bash
+   cd KSysAdmin/backend/infrastructure/database
+   alembic upgrade head
+   cd ../../../..
+   ```
+
+4. **Backend Servers** (2 terminals):
+   ```bash
+   # Terminal 1: Public Server (Auth + Payment)
+   uvicorn public_server:app --port 8001 --reload
+
+   # Terminal 2: Admin Server
+   uvicorn admin_server:app --port 8002 --reload
+   ```
+
+5. **Nginx** (API Gateway - MANDATORY):
+   ```bash
+   nginx -c $(pwd)/nginx/nginx.conf
+   # Or with OpenResty for Redis rate limiting
+   openresty -c $(pwd)/nginx/nginx.conf
+   ```
+
+6. **Frontend** (optional, per service):
+   ```bash
+   cd KAuthApp/frontend && npm run dev
+   ```
+
+**Access Points**:
+- Main entry: http://localhost (via nginx)
+- Health checks: http://localhost:8001/health, http://localhost:8002/health
+- Public API: http://localhost/api/auth/*, http://localhost/api/payment/*
+- Admin API: http://localhost/api/admin/*
+- Direct backend access NOT recommended (breaks production parity)
 
 ### Project Structure Generation
 ```bash
@@ -312,20 +405,102 @@ backend/domain → backend/application/dto → backend/application input|output 
 
 ### Shared Modules
 Located in `shared/` at repository root. **Scope is intentionally minimal**:
-- **Logging configuration** (structlog setup)
-- **Encryption/Decryption utilities** (Rust module for cryptographic operations)
-- **UUID utilities** (UUID7 generation for time-sortable IDs)
-- **Common infrastructure utilities only**
 
-**Rust Encryption Module**:
+**CRITICAL: ALWAYS CHECK shared/ BEFORE CREATING NEW UTILITIES!**
+Before implementing any utility, database connection, logging, crypto, or common functionality, CHECK if it already exists in `shared/`. Many infrastructure components are already implemented.
+
+**What's Already Available in shared/**:
+
+1. **Configuration** (`shared/backend/config/settings.py`)
+   - Pydantic settings with .env validation
+   - Database, Redis, JWT, CORS, Crypto config
+   - Singleton pattern ready to import
+
+2. **Logging** (`shared/backend/loggingFactory.py`)
+   - Enhanced structured logging with SystemLogger & UserLogger
+   - Categories: Security, Application, Performance, Error, Audit
+   - Request context binding for distributed tracing
+   - JSON output for production, console for development
+
+3. **Database** (`shared/backend/database/`)
+   - `engine.py`: Async SQLAlchemy engine with connection pooling
+   - Functions: `initDb()`, `closeDb()`, `getDb()` (FastAPI dependency), `checkConnection()`
+   - `baseRepository.py`: Generic CRUD repository pattern (extend this for service repos)
+
+4. **Redis** (`shared/backend/redis/client.py`)
+   - Async Redis client with connection pooling
+   - Functions: `initRedis()`, `closeRedis()`, `getRedis()` (FastAPI dependency), `checkConnection()`
+   - Key naming: `{service}:{type}:{identifier}`
+
+5. **UUID Utilities** (`shared/backend/utils/uuid.py`)
+   - `generateId()`: Time-sortable UUID7 generation
+   - `parseId()`, `isValidId()`: UUID validation helpers
+   - Use UUID7 for better database indexing performance
+
+6. **Cryptography** (`shared/backend/cryptoFactory.py` + `shared/rust-crypto/`)
+   - **Rust module** for high-performance encryption (AES-256-GCM + Argon2id)
+   - Context-binding encryption via Additional Authenticated Data (AAD)
+   - Python wrapper: `CryptoFactory` with `encryptSensitive()`, `decryptSensitive()`
+
+7. **Middleware** (`shared/backend/middleware/`)
+   - `corsMiddleware.py`: CORS configuration helper
+   - `requestIdMiddleware.py`: Request ID generation and tracing
+
+8. **Exception Handlers** (`shared/backend/exceptions/`)
+   - `baseException.py`: Custom exception hierarchy
+   - `errorResponse.py`: Standardized error response factory
+   - `exceptionHandlers.py`: FastAPI exception handlers
+   - Automatically wired to both servers
+
+9. **Health Check** (`shared/backend/health/`)
+   - `healthCheck.py`: Component health monitoring
+   - Checks: Database, Redis, Crypto with latency measurements
+   - Endpoint: `/health` (available on both servers)
+
+**Rust Encryption Module Details**:
 - **NOT a server** - pure crypto library module only
-- Custom Rust-based encryption/decryption using **AES-256-GCM** with **Argon2id** key derivation
-- Supports **context-binding encryption** via Additional Authenticated Data (AAD)
-- Use cases: bind encrypted data to user_id + device_fingerprint to prevent reuse/replay
-- Accessible to all Python services via PyO3 FFI bindings
-- Located in `shared/rust-crypto/`
+- Location: `shared/rust-crypto/`
+- Algorithm: **AES-256-GCM** with **Argon2id** key derivation
+- Supports **context-binding encryption** via AAD (bind to user_id + device_fingerprint)
+- Use cases: prevent replay attacks, bind encrypted data to specific contexts
 - Master key stored in `.env` (CRYPTO_MASTER_KEY), salts generated per-record
-- Performance-critical internal encryption/decryption operations only
+
+**Installation Steps** (if not already installed):
+```bash
+# Simple method using pip (RECOMMENDED)
+cd shared/rust-crypto
+pip install -e .
+cd ../..
+
+# Verify installation
+poetry run python -c "import k_services_crypto; print('✓ Rust crypto installed')"
+
+# Test encryption/decryption works
+poetry run python -c "
+from shared.backend.cryptoFactory import crypto
+enc = crypto.encryptSensitive('test data', 'user:123')
+dec = crypto.decryptSensitive(enc, 'user:123')
+print(f'✓ Crypto works: {dec}')
+"
+```
+
+**What `pip install -e .` does**:
+- Builds Rust code using `cargo build --release`
+- Installs Python module in editable mode
+- Module becomes available as `k_services_crypto` in virtualenv
+- No need for maturin installation
+
+**Usage**:
+```python
+from shared.backend.cryptoFactory import crypto
+
+# Basic encryption
+encrypted = crypto.encryptSensitive("sensitive data", context="user:123")
+# Returns: CryptoOutput(ciphertext, salt, nonce)
+
+# Decryption (requires same context)
+decrypted = crypto.decryptSensitive(encrypted, context="user:123")
+```
 
 **Logging Factory** (`shared/backend/loggingFactory.py`):
 - **UserLog**: Audit logs for user actions (login, data mutations, permission changes)
@@ -438,28 +613,32 @@ When creating new services, replicate this exact structure. All architectural pr
 
 ## Important Don'ts
 
-1. **Never use deprecated Python types** (`Dict`, `List`, `Optional`)
-2. **Never write business logic outside `backend/domain/`**
-3. **Never create custom interfaces in random files** - follow structure and use `*Interface.py` suffix
-4. **Never inject external libs into domain except SQLModel** - SQLModel is allowed for models
-5. **Never create exceptions in service/infrastructure** - use `domain/exceptions/`
-6. **Never run tests unless explicitly instructed** - testing happens at final stage
-7. **Never create docstrings** - maintain clean code without documentation noise
-8. **Never use modular monolith pattern outside KAuthApp/KSysAdmin/KSysPayment trio**
-9. **Never handle frontend routing in backend** - backend is API-only, frontend handles own routes
-10. **Never serve HTML from FastAPI** - frontend build files served separately (nginx/static server)
-11. **Never use manual/native config** - maximize pydantic-settings, FastAPI middleware, CORS
-12. **Never implement custom crypto algorithms** - use Rust module with proven algorithms (AES-256-GCM)
-13. **Never run user management services without nginx** - MUST use nginx from development onwards
-14. **Never access backend services directly** - always through nginx (production parity)
-15. **Never import models from KSysAdmin into KAuthApp/KSysPayment** - duplicate models instead
-16. **Never create Alembic migrations outside KSysAdmin** - KSysAdmin owns all schema changes
-17. **Never implement rate limiting in FastAPI** - handled by nginx reading Redis
-18. **Never access database directly in services** - use Repository Pattern exclusively
-19. **Never let KAuthApp/KSysPayment models drift from schema** - sync after KSysAdmin migrations
-20. **Never use UUID4** - use UUID7 for time-sortable, better-indexing IDs
-21. **Never write manual boilerplate** - leverage Python magic methods, dataclasses, Pydantic
-22. **Never skip `from __future__ import annotations`** - enables forward references and cleaner types
+1. **Never create utilities without checking `shared/` first** - Database, Redis, Logging, Crypto, UUID, Repository are already implemented
+2. **Never use deprecated Python types** (`Dict`, `List`, `Optional`)
+3. **Never write business logic outside `backend/domain/`**
+4. **Never create custom interfaces in random files** - follow structure and use `*Interface.py` suffix
+5. **Never inject external libs into domain except SQLModel** - SQLModel is allowed for models
+6. **Never create exceptions in service/infrastructure** - use `domain/exceptions/`
+7. **Never run tests unless explicitly instructed** - testing happens at final stage
+8. **Never create docstrings** - maintain clean code without documentation noise
+9. **Never use modular monolith pattern outside KAuthApp/KSysAdmin/KSysPayment trio**
+10. **Never handle frontend routing in backend** - backend is API-only, frontend handles own routes
+11. **Never serve HTML from FastAPI** - frontend build files served separately (nginx/static server)
+12. **Never use manual/native config** - maximize pydantic-settings, FastAPI middleware, CORS
+13. **Never implement custom crypto algorithms** - use Rust module with proven algorithms (AES-256-GCM)
+14. **Never run user management services without nginx** - MUST use nginx from development onwards
+15. **Never access backend services directly** - always through nginx (production parity)
+16. **Never import models from KSysAdmin into KAuthApp/KSysPayment** - duplicate models instead
+17. **Never create Alembic migrations outside KSysAdmin** - KSysAdmin owns all schema changes
+18. **Never implement rate limiting in FastAPI** - handled by nginx reading Redis
+19. **Never access database directly in services** - use Repository Pattern exclusively
+20. **Never let KAuthApp/KSysPayment models drift from schema** - sync after KSysAdmin migrations
+21. **Never use UUID4** - use UUID7 for time-sortable, better-indexing IDs
+22. **Never write manual boilerplate** - leverage Python magic methods, dataclasses, Pydantic
+23. **Never skip `from __future__ import annotations`** - enables forward references and cleaner types
+24. **Never assume utilities don't exist** - Check `shared/backend/` for database, redis, logging, crypto, uuid helpers
+25. **Never start backend servers before infrastructure** - PostgreSQL and Redis must be running first
+26. **Never skip database migrations** - Run `alembic upgrade head` before starting servers
 
 ## Reference Materials
 
