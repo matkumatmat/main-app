@@ -85,6 +85,23 @@ class SystemLogger:
             service=service_name
         )
 
+    def bind(self, **context: Any) -> SystemLogger:
+        """Bind additional context to logger and return self for chaining"""
+        self.logger = self.logger.bind(**context)
+        return self
+
+    def info(self, event: str, **context: Any) -> None:
+        """Passthrough to structlog info (for simple logging)"""
+        self.logger.info(event, **context)
+
+    def warning(self, event: str, **context: Any) -> None:
+        """Passthrough to structlog warning (for simple logging)"""
+        self.logger.warning(event, **context)
+
+    def debug(self, event: str, **context: Any) -> None:
+        """Passthrough to structlog debug (for simple logging)"""
+        self.logger.debug(event, **context)
+
     def security(
         self,
         label: str,
@@ -158,7 +175,7 @@ class SystemLogger:
     def error(
         self,
         label: str,
-        exception: Exception,
+        exception: Exception | None = None,
         message: str | None = None,
         **context: Any
     ) -> None:
@@ -167,23 +184,30 @@ class SystemLogger:
 
         Args:
             label: Error identifier (e.g., "database_connection_failed")
-            exception: The exception object
+            exception: Optional exception object
             message: Optional custom message (defaults to exception message)
             context: Additional context (user_id, request_id, etc.)
-        """
-        error_detail = {
-            "exception_type": type(exception).__name__,
-            "exception_message": str(exception),
-            "stack_trace": traceback.format_exc(),
-        }
 
-        self.logger.error(
-            message or str(exception),
-            type="error",
-            label=label,
-            error_detail=error_detail,
-            **context
-        )
+        Can be called two ways:
+        - logger.error("label", exception, message="...", user_id="...")
+        - logger.error("event_message", error="...", other_context="...")
+        """
+        if exception is not None:
+            error_detail = {
+                "exception_type": type(exception).__name__,
+                "exception_message": str(exception),
+                "stack_trace": traceback.format_exc(),
+            }
+
+            self.logger.error(
+                message or str(exception),
+                type="error",
+                label=label,
+                error_detail=error_detail,
+                **context
+            )
+        else:
+            self.logger.error(label, type="error", **context)
 
     @contextmanager
     def measurePerformance(self, label: str, threshold_ms: float = 500, **context: Any):
@@ -215,6 +239,11 @@ class UserLogger:
             service=service_name,
             type="audit"
         )
+
+    def bind(self, **context: Any) -> UserLogger:
+        """Bind additional context to logger and return self for chaining"""
+        self.logger = self.logger.bind(**context)
+        return self
 
     def audit(
         self,

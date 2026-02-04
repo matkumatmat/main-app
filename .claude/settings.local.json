@@ -11,7 +11,19 @@
       "Bash(poetry run python:*)",
       "Bash(poetry run maturin --help:*)",
       "Bash(pip install:*)",
-      "Bash(poetry show:*)"
+      "Bash(poetry show:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker exec:*)",
+      "Bash(curl:*)",
+      "Bash(for:*)",
+      "Bash(do curl -s http://localhost:8080/api/auth/health -w \" | Status: %{http_code}\\\\n\")",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "Bash(lsof:*)",
+      "Bash(alembic revision:*)",
+      "Bash(poetry run alembic:*)",
+      "Bash(psql:*)",
+      "Bash(xargs kill:*)"
     ]
   }
 }

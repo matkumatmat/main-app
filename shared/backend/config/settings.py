@@ -73,6 +73,14 @@ class Settings(BaseSettings):
     rate_limit_payment: int = Field(default=100, ge=1, le=1000)
     rate_limit_admin: int = Field(default=120, ge=1, le=500)
 
+    # Admin Authentication
+    admin_hash_key: str = Field(min_length=64, max_length=64)
+
+    # Monitoring Configuration
+    monitoring_collection_interval: int = Field(default=300, ge=60, le=3600)
+    monitoring_retention_days: int = Field(default=7, ge=1, le=90)
+    nginx_access_log_path: str = "nginx/logs/access.log"
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def parseCorsOrigins(cls, v: str | list[str]) -> list[str]:

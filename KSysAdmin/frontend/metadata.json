@@ -1,0 +1,5 @@
+{
+  "name": "KSysAdmin Monitor",
+  "description": "Comprehensive system monitoring dashboard for security events, system health, and request metrics with a clean, modern UI.",
+  "requestFramePermissions": []
+}

@@ -642,7 +642,7 @@ When creating new services, replicate this exact structure. All architectural pr
 
 ## Reference Materials
 
-If unclear about Pydantic or FastAPI patterns, check `/framework-reference/llms-*.md` files for official documentation references.
+If unclear about Pydantic or FastAPI patterns or sqlmodel/sqlalchemy, check `/framework-reference/llms-*.md` files for official documentation references.
 
 ## Environment Configuration
 

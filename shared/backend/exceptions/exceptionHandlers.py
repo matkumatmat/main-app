@@ -5,15 +5,18 @@ from fastapi.exceptions import RequestValidationError
 from pydantic import ValidationError
 from .baseException import BaseAppException
 from .errorResponse import ErrorResponseFactory, getRequestId
-from shared.backend.loggingFactory import SystemLog
+from shared.backend.loggingFactory import LoggerFactory
+
+systemLogger = LoggerFactory.getSystemLogger("SharedExceptionHandler")
 
 
 async def appExceptionHandler(request: Request, exc: BaseAppException) -> JSONResponse:
     request_id = getRequestId()
 
-    SystemLog.error(
+    systemLogger.application(
         label="application_error",
         message=exc.message,
+        level="error",
         error_code=exc.code,
         status_code=exc.status_code,
         path=str(request.url),
@@ -47,9 +50,10 @@ async def validationExceptionHandler(
 
     combined_message = "; ".join(error_messages) if error_messages else "Validation failed"
 
-    SystemLog.error(
+    systemLogger.application(
         label="validation_error",
         message=combined_message,
+        level="error",
         path=str(request.url),
         method=request.method,
         errors=errors
@@ -69,13 +73,12 @@ async def validationExceptionHandler(
 async def genericExceptionHandler(request: Request, exc: Exception) -> JSONResponse:
     request_id = getRequestId()
 
-    SystemLog.error(
+    systemLogger.error(
         label="unhandled_exception",
-        message=str(exc),
-        exception_type=type(exc).__name__,
+        exception=exc,
+        message="Unhandled exception occurred",
         path=str(request.url),
-        method=request.method,
-        error=exc
+        method=request.method
     )
 
     response_data = ErrorResponseFactory.createGeneric(

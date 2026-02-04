@@ -5,7 +5,8 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker
 )
-from sqlalchemy.pool import NullPool, QueuePool
+from sqlalchemy import text
+from sqlalchemy.pool import NullPool
 from typing import AsyncGenerator
 import structlog
 
@@ -30,21 +31,22 @@ def createEngine() -> AsyncEngine:
         max_overflow=settings.database_max_overflow
     )
 
-    engine = create_async_engine(
-        settings.database_url,
-        # Connection pooling strategy
-        poolclass=QueuePool if not settings.debug else NullPool,
-        pool_size=settings.database_pool_size,
-        max_overflow=settings.database_max_overflow,
-        pool_timeout=settings.database_pool_timeout,
-        pool_recycle=settings.database_pool_recycle,
-        pool_pre_ping=True,  # Validate connections before use
-        # Logging
-        echo=settings.debug,  # Log SQL in debug mode
-        echo_pool=settings.debug if settings.debug else False,
-        # Performance
-        future=True,  # Use SQLAlchemy 2.0 style
-    )
+    engine_kwargs = {
+        "url": settings.database_url,
+        "pool_size": settings.database_pool_size,
+        "max_overflow": settings.database_max_overflow,
+        "pool_timeout": settings.database_pool_timeout,
+        "pool_recycle": settings.database_pool_recycle,
+        "pool_pre_ping": True,
+        "echo": settings.debug,
+        "echo_pool": settings.debug if settings.debug else False,
+        "future": True,
+    }
+
+    if settings.debug:
+        engine_kwargs["poolclass"] = NullPool
+
+    engine = create_async_engine(**engine_kwargs)
 
     logger.info("database_engine_created")
     return engine
@@ -81,7 +83,7 @@ async def initDb() -> None:
 
         # Test connection
         async with _engine.begin() as conn:
-            await conn.execute("SELECT 1")
+            await conn.execute(text("SELECT 1"))
 
         logger.info(
             "database_initialized",
@@ -171,7 +173,7 @@ async def checkConnection() -> bool:
     try:
         engine = getEngine()
         async with engine.begin() as conn:
-            await conn.execute("SELECT 1")
+            await conn.execute(text("SELECT 1"))
         return True
     except Exception as e:
         logger.error(
