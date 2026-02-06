@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Activity, Server, ShieldAlert, RefreshCw, LayoutDashboard, Users, CreditCard, Settings, Layers, Command, ClipboardList, Rocket, Database, Briefcase } from './components/Icons';
-import { generateTimeSeriesData, mockSecurityEvents, mockTopEndpoints, mockSummary, mockHealth, mockUsers, mockInvoices, mockMicroservices, mockIncidents, mockDeployments } from './utils/mockData';
-import { ServiceType, TimeSeriesPoint } from './types';
+import { generateTimeSeriesData, mockSecurityEvents, mockTopEndpoints, mockSummary, mockUsers, mockInvoices, mockMicroservices, mockIncidents, mockDeployments } from './utils/mockData';
+import { ServiceType, TimeSeriesPoint, SystemHealth, DashboardSummary, EndpointMetric, SecurityEvent } from './types';
+import { fetchMetrics, fetchHourlyAggregations } from './api/metricsApi';
+import { fetchLatestHealthSnapshots } from './api/healthApi';
+import { fetchRecentSuspiciousActivities } from './api/securityApi';
 import DashboardPage from './pages/DashboardPage';
 import MetricsPage from './pages/MetricsPage';
 import SecurityPage from './pages/SecurityPage';
@@ -35,18 +38,122 @@ const App: React.FC = () => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
   const [activeTab, setActiveTab] = useState('dashboard');
-  
+
   // State for data
   const [metricsData, setMetricsData] = useState<TimeSeriesPoint[]>([]);
+  const [systemHealth, setSystemHealth] = useState<SystemHealth | null>(null);
+  const [dashboardSummary, setDashboardSummary] = useState<DashboardSummary>(mockSummary);
+  const [securityEvents, setSecurityEvents] = useState<SecurityEvent[]>(mockSecurityEvents);
+  const [topEndpoints, setTopEndpoints] = useState<EndpointMetric[]>(mockTopEndpoints);
 
-  const loadData = () => {
+  const loadData = async () => {
     setIsRefreshing(true);
-    // Simulate API call delay
-    setTimeout(() => {
-      setMetricsData(generateTimeSeriesData(timeRange));
+
+    try {
+      // Calculate date range
+      const end = new Date();
+      const start = new Date();
+      start.setDate(start.getDate() - timeRange);
+
+      // Map service type to backend service name
+      const serviceMap: Record<string, string> = {
+        'all': 'kauth',
+        'auth': 'kauth',
+        'payment': 'ksyspayment',
+        'admin': 'ksysadmin'
+      };
+      const service = serviceMap[selectedService] || 'kauth';
+
+      // Fetch metrics
+      const metricsResponse = await fetchMetrics(service, start.toISOString(), end.toISOString(), 1000);
+
+      // Convert backend metrics to chart data
+      const convertedData = convertMetricsToTimeSeriesData(metricsResponse.metrics);
+      setMetricsData(convertedData);
+
+      // Fetch health data
+      const healthResponse = await fetchLatestHealthSnapshots(1);
+      if (healthResponse.snapshots.length > 0) {
+        const latest = healthResponse.snapshots[0];
+        setSystemHealth({
+          database: {
+            status: latest.db_status === 'up' ? 'healthy' : 'down',
+            latency: latest.db_latency_ms || 0
+          },
+          redis: {
+            status: latest.redis_status === 'up' ? 'healthy' : 'down',
+            latency: latest.redis_latency_ms || 0
+          },
+          lastUpdated: latest.timestamp
+        });
+      }
+
+      // Fetch security events
+      const securityResponse = await fetchRecentSuspiciousActivities(50);
+      const convertedEvents = securityResponse.activities.map(activity => ({
+        id: activity.id,
+        timestamp: activity.timestamp,
+        type: activity.activity_type as any,
+        severity: activity.severity as any,
+        sourceIp: activity.remote_ip,
+        details: JSON.stringify(activity.details)
+      }));
+      setSecurityEvents(convertedEvents);
+
+      // Calculate dashboard summary
+      const summary = calculateDashboardSummary(metricsResponse.metrics);
+      setDashboardSummary(summary);
+
       setLastUpdated(new Date());
+    } catch (error) {
+      console.error('Failed to load data:', error);
+      // Fallback to mock data on error
+      setMetricsData(generateTimeSeriesData(timeRange));
+    } finally {
       setIsRefreshing(false);
-    }, 600);
+    }
+  };
+
+  const convertMetricsToTimeSeriesData = (metrics: any[]): TimeSeriesPoint[] => {
+    // Group metrics by hour
+    const grouped: { [key: string]: any[] } = {};
+
+    metrics.forEach(metric => {
+      const hour = new Date(metric.timestamp).toISOString().slice(0, 13) + ':00:00';
+      if (!grouped[hour]) grouped[hour] = [];
+      grouped[hour].push(metric);
+    });
+
+    // Convert to chart format
+    return Object.keys(grouped).sort().map(hour => {
+      const hourMetrics = grouped[hour];
+      const errors = hourMetrics.filter(m => m.status >= 400).length;
+      const rateLimited = hourMetrics.filter(m => m.rate_limited).length;
+      const avgLatency = hourMetrics.reduce((sum, m) => sum + (m.backend_latency_ms || 0), 0) / hourMetrics.length;
+
+      return {
+        timestamp: hour,
+        totalRequests: hourMetrics.length,
+        errorCount: errors,
+        rateLimitedCount: rateLimited,
+        avgLatency: Math.round(avgLatency)
+      };
+    });
+  };
+
+  const calculateDashboardSummary = (metrics: any[]): DashboardSummary => {
+    const totalRequests = metrics.length;
+    const errors = metrics.filter(m => m.status >= 400).length;
+    const errorRate = totalRequests > 0 ? (errors / totalRequests) * 100 : 0;
+    const avgLatency = metrics.reduce((sum, m) => sum + (m.backend_latency_ms || 0), 0) / (totalRequests || 1);
+    const rateLimited = metrics.filter(m => m.rate_limited).length;
+
+    return {
+      totalRequests,
+      errorRate: parseFloat(errorRate.toFixed(2)),
+      avgLatency: Math.round(avgLatency),
+      activeViolations: rateLimited
+    };
   };
 
   useEffect(() => {
@@ -167,14 +274,14 @@ const App: React.FC = () => {
                 <span className="text-slate-400">Database</span>
                 <span className="flex items-center gap-2 text-primary font-mono text-xs bg-primary/10 px-2 py-1 rounded-md border border-primary/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                  {mockHealth.database.latency}ms
+                  {systemHealth?.database.latency || 0}ms
                 </span>
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-slate-400">Redis</span>
                 <span className="flex items-center gap-2 text-primary font-mono text-xs bg-primary/10 px-2 py-1 rounded-md border border-primary/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                  {mockHealth.redis.latency}ms
+                  {systemHealth?.redis.latency || 0}ms
                 </span>
               </div>
             </div>
@@ -232,17 +339,17 @@ const App: React.FC = () => {
 
         {/* Content Render Logic */}
         {activeTab === 'dashboard' && (
-          <DashboardPage 
-            metricsData={metricsData} 
-            summary={mockSummary} 
-            topEndpoints={mockTopEndpoints} 
-            securityEvents={mockSecurityEvents} 
+          <DashboardPage
+            metricsData={metricsData}
+            summary={dashboardSummary}
+            topEndpoints={topEndpoints}
+            securityEvents={securityEvents}
           />
         )}
         {activeTab === 'services' && <ServicesPage services={mockMicroservices} />}
         {activeTab === 'metrics' && <MetricsPage data={metricsData} />}
         {activeTab === 'jobs' && <JobsPage />}
-        {activeTab === 'security' && <SecurityPage events={mockSecurityEvents} />}
+        {activeTab === 'security' && <SecurityPage events={securityEvents} />}
         {activeTab === 'health' && <HealthPage />}
         {activeTab === 'incidents' && <IncidentsPage incidents={mockIncidents} />}
         {activeTab === 'deployments' && <DeploymentsPage deployments={mockDeployments} />}

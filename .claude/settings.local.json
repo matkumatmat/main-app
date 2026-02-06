@@ -23,7 +23,10 @@
       "Bash(alembic revision:*)",
       "Bash(poetry run alembic:*)",
       "Bash(psql:*)",
-      "Bash(xargs kill:*)"
+      "Bash(xargs kill:*)",
+      "Bash(ls:*)",
+      "Bash(poetry run uvicorn:*)",
+      "Bash(grep:*)"
     ]
   }
 }

@@ -18,6 +18,12 @@ async def getMetrics(
     session: AsyncSession = Depends(getDb)
 ):
     """Retrieve metrics for a service, optionally within time range"""
+    # Strip timezone info to match database TIMESTAMP WITHOUT TIME ZONE
+    if start:
+        start = start.replace(tzinfo=None)
+    if end:
+        end = end.replace(tzinfo=None)
+
     monitoring = MonitoringService(session)
     metrics = await monitoring.getServiceMetrics(service, start, end, limit)
 
@@ -53,6 +59,12 @@ async def getHourlyAggregation(
     session: AsyncSession = Depends(getDb)
 ):
     """Retrieve hourly aggregated metrics for a service"""
+    # Strip timezone info to match database TIMESTAMP WITHOUT TIME ZONE
+    if start:
+        start = start.replace(tzinfo=None)
+    if end:
+        end = end.replace(tzinfo=None)
+
     monitoring = MonitoringService(session)
     aggregations = await monitoring.getHourlyAggregation(service, start, end)
 

@@ -43,6 +43,10 @@ async def getHealthHistory(
     session: AsyncSession = Depends(getDb)
 ):
     """Retrieve health snapshots within time range"""
+    # Strip timezone info to match database TIMESTAMP WITHOUT TIME ZONE
+    start = start.replace(tzinfo=None)
+    end = end.replace(tzinfo=None)
+
     health_service = HealthCheckService(session)
     snapshots = await health_service.getHealthHistory(start, end, limit)
 
@@ -72,6 +76,10 @@ async def analyzeHealthStatus(
     session: AsyncSession = Depends(getDb)
 ):
     """Analyze health snapshots and return summary statistics"""
+    # Strip timezone info to match database TIMESTAMP WITHOUT TIME ZONE
+    start = start.replace(tzinfo=None)
+    end = end.replace(tzinfo=None)
+
     health_service = HealthCheckService(session)
     snapshots = await health_service.getHealthHistory(start, end, 10000)
     analysis = health_service.analyzeHealth(snapshots)

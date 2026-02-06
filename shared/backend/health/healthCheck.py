@@ -2,9 +2,12 @@ from __future__ import annotations
 import time
 from typing import Any
 from datetime import datetime, UTC
+from fastapi import APIRouter
 from shared.backend.database.engine import checkConnection as checkDbConnection
 from shared.backend.redis.client import checkConnection as checkRedisConnection
 from shared.backend.cryptoFactory import crypto
+
+router = APIRouter(tags=["Health"])
 
 
 async def checkDatabase() -> dict[str, Any]:
@@ -87,3 +90,8 @@ async def performHealthCheck() -> dict[str, Any]:
         },
         "timestamp": datetime.now(UTC).isoformat()
     }
+
+
+@router.get("/health")
+async def healthCheck():
+    return await performHealthCheck()

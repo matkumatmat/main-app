@@ -93,6 +93,10 @@ async def assessThreatLevel(
     session: AsyncSession = Depends(getDb)
 ):
     """Analyze suspicious activities and assess overall threat level"""
+    # Strip timezone info to match database TIMESTAMP WITHOUT TIME ZONE
+    if start:
+        start = start.replace(tzinfo=None)
+
     security_service = SecurityService(session)
     activities = await security_service.getRecentSuspiciousActivities(limit)
     assessment = security_service.assessThreatLevel(activities)
