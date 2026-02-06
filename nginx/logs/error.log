@@ -626,3 +626,161 @@
 2026/02/05 23:44:34 [info] 62095#0: epoll_wait() failed (4: Interrupted system call)
 2026/02/05 23:44:34 [info] 62094#0: epoll_wait() failed (4: Interrupted system call)
 2026/02/05 23:44:34 [info] 62093#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62095#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62093#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62096#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62100#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62097#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62099#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62094#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62098#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [info] 62093#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [info] 62097#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62093#0: exiting
+2026/02/06 17:39:04 [notice] 62097#0: exiting
+2026/02/06 17:39:04 [info] 62096#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62096#0: exiting
+2026/02/06 17:39:04 [info] 62100#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [info] 62095#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62100#0: exiting
+2026/02/06 17:39:04 [notice] 62095#0: exiting
+2026/02/06 17:39:04 [info] 62099#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62099#0: exiting
+2026/02/06 17:39:04 [info] 62094#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62094#0: exiting
+2026/02/06 17:39:04 [info] 62098#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/06 17:39:04 [notice] 62098#0: exiting
+2026/02/06 17:39:04 [notice] 62092#0: signal 15 (SIGTERM) received from 643070, exiting
+2026/02/06 17:39:04 [notice] 62093#0: exit
+2026/02/06 17:39:04 [notice] 62099#0: exit
+2026/02/06 17:39:04 [notice] 62096#0: exit
+2026/02/06 17:39:04 [notice] 62095#0: exit
+2026/02/06 17:39:04 [notice] 62098#0: exit
+2026/02/06 17:39:04 [notice] 62100#0: exit
+2026/02/06 17:39:04 [notice] 62097#0: exit
+2026/02/06 17:39:04 [notice] 62094#0: exit
+2026/02/06 17:39:04 [notice] 62092#0: signal 17 (SIGCHLD) received from 62099
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62099 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62093 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62095 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62094 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62096 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62097 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62098 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: worker process 62100 exited with code 0
+2026/02/06 17:39:04 [notice] 62092#0: exit
+2026/02/07 02:33:51 [notice] 824870#0: using the "epoll" event method
+2026/02/07 02:33:51 [notice] 824870#0: openresty/1.27.1.2
+2026/02/07 02:33:51 [notice] 824870#0: OS: Linux 6.18.3-arch1-1
+2026/02/07 02:33:51 [notice] 824870#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/07 02:33:51 [notice] 824870#0: start worker processes
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824871
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824872
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824873
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824874
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824875
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824876
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824877
+2026/02/07 02:33:51 [notice] 824870#0: start worker process 824878
+2026/02/07 02:44:21 [error] 824872#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "OPTIONS /api/auth/signup HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/signup", host: "localhost:8080", referrer: "http://localhost:4321/"
+2026/02/07 02:44:26 [info] 824871#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 02:47:21 [error] 824874#0: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "OPTIONS /api/auth/signup HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/signup", host: "localhost:8080", referrer: "http://localhost:4321/"
+2026/02/07 02:47:26 [info] 824873#0: *4 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 02:47:30 [notice] 824878#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [notice] 824874#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [notice] 824872#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [notice] 824873#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [info] 824874#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [info] 824878#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824876#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [notice] 824877#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [info] 824872#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824874#0: exiting
+2026/02/07 02:47:30 [notice] 824878#0: exiting
+2026/02/07 02:47:30 [info] 824873#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [info] 824877#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824872#0: exiting
+2026/02/07 02:47:30 [info] 824876#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824873#0: exiting
+2026/02/07 02:47:30 [notice] 824877#0: exiting
+2026/02/07 02:47:30 [notice] 824876#0: exiting
+2026/02/07 02:47:30 [notice] 824871#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [info] 824871#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824871#0: exiting
+2026/02/07 02:47:30 [notice] 824870#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [notice] 824875#0: signal 2 (SIGINT) received, exiting
+2026/02/07 02:47:30 [info] 824875#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:47:30 [notice] 824875#0: exiting
+2026/02/07 02:47:30 [notice] 824878#0: exit
+2026/02/07 02:47:30 [notice] 824876#0: exit
+2026/02/07 02:47:30 [notice] 824873#0: exit
+2026/02/07 02:47:30 [notice] 824872#0: exit
+2026/02/07 02:47:30 [notice] 824877#0: exit
+2026/02/07 02:47:30 [notice] 824874#0: exit
+2026/02/07 02:47:30 [notice] 824875#0: exit
+2026/02/07 02:47:30 [notice] 824871#0: exit
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824872
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824872 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: signal 29 (SIGIO) received
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824878
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824873 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824875 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824878 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: signal 29 (SIGIO) received
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824875
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824874
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824874 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: signal 29 (SIGIO) received
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824871
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824871 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: signal 29 (SIGIO) received
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824877
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824877 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: signal 29 (SIGIO) received
+2026/02/07 02:47:30 [notice] 824870#0: signal 17 (SIGCHLD) received from 824876
+2026/02/07 02:47:30 [notice] 824870#0: worker process 824876 exited with code 0
+2026/02/07 02:47:30 [notice] 824870#0: exit
+2026/02/07 02:47:32 [notice] 830964#0: using the "epoll" event method
+2026/02/07 02:47:32 [notice] 830964#0: openresty/1.27.1.2
+2026/02/07 02:47:32 [notice] 830964#0: OS: Linux 6.18.3-arch1-1
+2026/02/07 02:47:32 [notice] 830964#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/02/07 02:47:32 [notice] 830964#0: start worker processes
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830966
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830967
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830968
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830969
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830970
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830971
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830972
+2026/02/07 02:47:32 [notice] 830964#0: start worker process 830973
+2026/02/07 02:47:53 [info] 830966#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 02:48:51 [error] 830968#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/signup HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/signup", host: "localhost:8080"
+2026/02/07 02:48:56 [error] 830968#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/ HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/", host: "localhost:8080"
+2026/02/07 02:48:59 [error] 830968#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/ HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/", host: "localhost:8080"
+2026/02/07 02:49:04 [error] 830968#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/ HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/", host: "localhost:8080"
+2026/02/07 02:50:02 [error] 830968#0: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/ HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/", host: "localhost:8080"
+2026/02/07 02:50:02 [info] 830968#0: *3 client 127.0.0.1 closed keepalive connection
+2026/02/07 02:50:27 [error] 830969#0: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/auth/ HTTP/1.1", upstream: "http://127.0.0.1:8001/api/auth/", host: "localhost:8080"
+2026/02/07 02:58:28 [notice] 830969#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [notice] 830971#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [info] 830969#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [info] 830971#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [notice] 830970#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [notice] 830972#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [info] 830970#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [notice] 830973#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [info] 830972#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [notice] 830967#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [notice] 830968#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [info] 830973#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [info] 830967#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [info] 830968#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:58:28 [notice] 830966#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [notice] 830964#0: signal 28 (SIGWINCH) received
+2026/02/07 02:58:28 [info] 830966#0: epoll_wait() failed (4: Interrupted system call)
+2026/02/07 02:59:47 [info] 830970#0: *11 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 03:02:24 [info] 830972#0: *13 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 03:04:58 [info] 830966#0: *15 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 03:05:27 [info] 830966#0: *17 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 03:10:07 [info] 830966#0: *18 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2026/02/07 03:10:38 [info] 830966#0: *20 client closed connection while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080

@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SignInForm } from "../components/Auth/SignInForm";
+---
+
+<Layout
+  title="Sign In - KAuth"
+  description="Sign in to your account"
+>
+  <main class="min-h-screen flex items-center justify-center p-2 sm:p-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-lime-500/5 via-transparent to-lime-600/5"></div>
+
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 items-center relative z-10 py-4 sm:py-0">
+      <section class="hidden lg:flex items-center justify-center" aria-label="Welcome section">
+        <article class="relative w-full min-h-[600px] flex items-center justify-center py-8">
+          <div class="absolute inset-0 bg-gradient-to-r from-lime-400/20 to-lime-600/20 rounded-3xl blur-3xl"></div>
+
+          <div class="relative z-10 text-center space-y-8 px-4">
+            <header>
+              <h1 class="text-5xl font-bold text-white mb-4">Welcome Back!</h1>
+              <p class="text-xl text-gray-300 max-w-lg mx-auto">
+                Sign in to continue your journey with us
+              </p>
+            </header>
+
+            <section class="flex justify-center items-center gap-4 pt-8" aria-label="Features">
+              <div class="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center animate-pulse border border-white/10">
+                <svg class="w-10 h-10 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div class="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center animate-pulse border border-white/10" style="animation-delay: 0.2s;">
+                <svg class="w-10 h-10 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div class="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center animate-pulse border border-white/10" style="animation-delay: 0.4s;">
+                <svg class="w-10 h-10 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section aria-label="Sign in form">
+        <SignInForm client:load />
+      </section>
+    </div>
+  </main>
+</Layout>
