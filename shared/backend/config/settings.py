@@ -46,6 +46,16 @@ class Settings(BaseSettings):
     jwt_access_token_expire_minutes: int = Field(default=30, ge=1, le=1440)
     jwt_refresh_token_expire_days: int = Field(default=7, ge=1, le=90)
 
+    # SMTP Configuration
+    smtp_host: str = Field(default="smtp.gmail.com")
+    smtp_port: int = Field(default=587)
+    smtp_user: str
+    smtp_password: str
+    smtp_from_email: str
+
+    # Frontend URL (for email links)
+    frontend_url: str = Field(default="http://localhost:3000")
+
     # CORS Configuration
     # cors_origins: list[str] = Field(default_factory=list)
     cors_origins: str | list[str] = Field(default_factory=list)    
